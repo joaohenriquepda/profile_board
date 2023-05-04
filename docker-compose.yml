@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  profile_board:
+    build: .
+    entrypoint: [ "npm", "run", "start" ]
+    volumes:
+      - .:/home/node/app
+    networks:
+      - app-networks
+    ports:
+      - "4200:4200"
+networks:
+  app-networks:
+    driver: bridge
