@@ -1,6 +1,7 @@
 {
   "name": "profile-board",
   "version": "0.0.0",
+  "homepage": "profile_board/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
