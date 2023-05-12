@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -8,6 +10,8 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+
+  constructor(private http: HttpClient) { }
 
   @ViewChild('sidenav') sidenav: MatSidenav | undefined;
   isExpanded = true;
@@ -19,9 +23,19 @@ export class SidebarComponent {
     if (!this.isExpanded) {
       this.isShowing = true;
     }
+    this.http.get('https://pokeapi.co/api/v2/pokemon/ditto').subscribe((response) => {
+      console.log(response);
+    }, (error) => {
+      console.error(error);
+    });
+
   }
 
+
   mouseleave() {
+
+    console.log("AQUI");
+
     if (!this.isExpanded) {
       this.isShowing = false;
     }
